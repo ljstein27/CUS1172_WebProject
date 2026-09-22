@@ -13,22 +13,11 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        <style>
-            body {
-                font-family: 'Inter', sans-serif;
-                color: #f3f4f6;
-            }
-            .smooth-transition {
-                transition: all 0.3s ease-in-out;
-            }
-            .tab-btn.active {
-                font-weight: 600;
-                color: #ffffff;
-                border-bottom: 2px solid #3b82f6;
-            }
-        </style>
+        
+        <!-- External Custom Dark Mode CSS -->
+        <link rel="stylesheet" href="styles.css">
     </head>
-    <body class="bg-slate-950 min-h-screen flex flex-col justify-between selection:bg-blue-900 selection:text-blue-100">
+    <body class="min-h-screen flex flex-col justify-between">
     
         <!-- NAVIGATION HEADER -->
         <header class="w-full max-w-7xl mx-auto px-6 py-8 flex justify-between items-center">
@@ -37,7 +26,7 @@
             <a href="#home" onclick="switchTab('home')" class="flex items-center gap-3 group cursor-pointer">
                 <div class="w-9 h-9 relative flex items-center justify-center">
                     
-                    <!-- SVG Delta/Triangle Logo Preserved -->
+                    <!-- SVG Delta/Triangle Logo from Design -->
                     <svg viewBox="0 0 100 100" class="w-full h-full transform group-hover:scale-105 transition-transform duration-200">
                         <defs>
                             <linearGradient id="logoGradient" x1="0%" y1="100%" x2="100%" y2="0%">
@@ -59,8 +48,8 @@
     
             <!-- Nav Links / Dynamic View Switcher -->
             <nav class="flex items-center gap-10 text-base font-normal text-slate-400">
-                <button id="nav-services" onclick="switchTab('services')" class="tab-btn pb-1 hover:text-white transition-colors">Services</button>
-                <button id="nav-products" onclick="switchTab('products')" class="tab-btn pb-1 hover:text-white transition-colors">Products</button>
+                <button id="nav-services" onclick="switchTab('services')" class="tab-btn pb-1">Services</button>
+                <button id="nav-products" onclick="switchTab('products')" class="tab-btn pb-1">Products</button>
             </nav>
         </header>
     
@@ -83,7 +72,7 @@
     
                     <!-- Right Hero Image & CTA Column -->
                     <div class="lg:col-span-6 flex flex-col items-end">
-                        <div class="w-full max-w-xl overflow-hidden rounded-2xl shadow-sm mb-6 bg-slate-900 border border-slate-800">
+                        <div class="w-full max-w-xl card-wrapper mb-6">
                             <img 
                                 src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=1200&q=80" 
                                 alt="Engineers working on structural infrastructure" 
@@ -93,7 +82,7 @@
                         </div>
                         
                         <!-- CTA Button -->
-                        <button class="bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700 font-small px-7 py-3 rounded-full text-base transition-all duration-200 shadow-sm active:scale-95">
+                        <button class="btn-primary">
                             Schedule a call with us!
                         </button>
                     </div>
@@ -106,7 +95,7 @@
                 <!-- Section Header -->
                 <div class="flex justify-end mb-10">
                     <h2 class="text-4xl sm:text-5xl font-normal text-white tracking-tight">
-                        <span class="font-semibold">What</span> We Can Do for You
+                        <span class="font-bold">What</span> We Can Do for You
                     </h2>
                 </div>
     
@@ -121,11 +110,11 @@
                                 AI-driven custom-built apps engineered for excellence and efficiency.
                             </p>
                         </div>
-                        <div class="overflow-hidden rounded-2xl bg-slate-900 border border-slate-800">
+                        <div class="card-wrapper">
                             <img 
                                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" 
                                 alt="Software development team" 
-                                class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                                class="card-image"
                                 onerror="this.src='https://placehold.co/400x300/0f172a/94a3b8?text=Software+Development'"
                             />
                         </div>
@@ -139,11 +128,11 @@
                                 Cloud-first strategies that drive speed, scale, and savings.
                             </p>
                         </div>
-                        <div class="overflow-hidden rounded-2xl bg-slate-900 border border-slate-800">
+                        <div class="card-wrapper">
                             <img 
                                 src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" 
                                 alt="Cloud data center infrastructure" 
-                                class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                                class="card-image"
                                 onerror="this.src='https://placehold.co/400x300/0f172a/94a3b8?text=Cloud+Solutions'"
                             />
                         </div>
@@ -157,11 +146,11 @@
                                 End-to-end tech support so you can focus on growth, not glitches.
                             </p>
                         </div>
-                        <div class="overflow-hidden rounded-2xl bg-slate-900 border border-slate-800">
+                        <div class="card-wrapper">
                             <img 
                                 src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?auto=format&fit=crop&w=600&q=80" 
                                 alt="Managed tech support team" 
-                                class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                                class="card-image"
                                 onerror="this.src='https://placehold.co/400x300/0f172a/94a3b8?text=Managed+Services'"
                             />
                         </div>
@@ -175,11 +164,11 @@
                                 From vision to execution— strategic IT advisory you can count on.
                             </p>
                         </div>
-                        <div class="overflow-hidden rounded-2xl bg-slate-900 border border-slate-800">
+                        <div class="card-wrapper">
                             <img 
                                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80" 
                                 alt="Strategic advisory and process meeting" 
-                                class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                                class="card-image"
                                 onerror="this.src='https://placehold.co/400x300/0f172a/94a3b8?text=Process+Optimization'"
                             />
                         </div>
@@ -194,7 +183,7 @@
                 <!-- Section Header -->
                 <div class="flex justify-end mb-10">
                     <h2 class="text-4xl sm:text-5xl font-normal text-white tracking-tight">
-                        <span class="font-semibold">Explore</span> Our Products
+                        <span class="font-bold">Explore</span> Our Products
                     </h2>
                 </div>
     
@@ -209,11 +198,11 @@
                                 AI-driven custom-built apps engineered for excellence and efficiency.
                             </p>
                         </div>
-                        <div class="overflow-hidden rounded-2xl bg-slate-900 border border-slate-800">
+                        <div class="card-wrapper">
                             <img 
                                 src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" 
                                 alt="Robotics and hardware innovation" 
-                                class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                                class="card-image"
                                 onerror="this.src='https://placehold.co/400x300/0f172a/94a3b8?text=Queue+System+AI'"
                             />
                         </div>
@@ -227,11 +216,11 @@
                                 Cloud-first strategies that drive speed, scale, and savings.
                             </p>
                         </div>
-                        <div class="overflow-hidden rounded-2xl bg-slate-900 border border-slate-800">
+                        <div class="card-wrapper">
                             <img 
                                 src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" 
                                 alt="Circuit board and cloud hardware" 
-                                class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                                class="card-image"
                                 onerror="this.src='https://placehold.co/400x300/0f172a/94a3b8?text=Queue+System+Cloud'"
                             />
                         </div>
@@ -245,11 +234,11 @@
                                 End-to-end tech support so you can focus on growth, not glitches.
                             </p>
                         </div>
-                        <div class="overflow-hidden rounded-2xl bg-slate-900 border border-slate-800">
+                        <div class="card-wrapper">
                             <img 
                                 src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80" 
                                 alt="Lab engineer testing precision equipment" 
-                                class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                                class="card-image"
                                 onerror="this.src='https://placehold.co/400x300/0f172a/94a3b8?text=Queue+System+Tech'"
                             />
                         </div>
@@ -263,11 +252,11 @@
                                 From vision to execution— strategic IT advisory you can count on.
                             </p>
                         </div>
-                        <div class="overflow-hidden rounded-2xl bg-slate-900 border border-slate-800">
+                        <div class="card-wrapper">
                             <img 
                                 src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=600&q=80" 
                                 alt="Electronics soldering and hardware engineering" 
-                                class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                                class="card-image"
                                 onerror="this.src='https://placehold.co/400x300/0f172a/94a3b8?text=Queue+System+Advisory'"
                             />
                         </div>
@@ -279,7 +268,7 @@
         </main>
     
         <!-- FOOTER -->
-        <footer class="w-full border-t border-slate-800 bg-slate-950 mt-12 py-12">
+        <footer class="w-full border-t border-slate-800 mt-12 py-12">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="grid grid-cols-1 md:grid-cols-5 gap-8 text-xs text-slate-400">
                     
@@ -292,7 +281,7 @@
                     <!-- Link Column 1 -->
                     <div class="space-y-2">
                         <p><a href="#who" class="hover:text-white transition-colors">Who We Are</a></p>
-                        <p><a href="#publications" class="hover:text-black transition-colors">Publications</a></p>
+                        <p><a href="#publications" class="hover:text-white transition-colors">Publications</a></p>
                     </div>
     
                     <!-- Link Column 2 -->
