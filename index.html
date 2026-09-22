@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CUS 1172 - Web Project</title>
+        
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+        <!-- Google Fonts Inter -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Inter', sans-serif;
+                color: #f3f4f6;
+            }
+            .smooth-transition {
+                transition: all 0.3s ease-in-out;
+            }
+            .tab-btn.active {
+                font-weight: 600;
+                color: #ffffff;
+                border-bottom: 2px solid #3b82f6;
+            }
+        </style>
+    </head>
+    <body class="bg-slate-950 min-h-screen flex flex-col justify-between selection:bg-blue-900 selection:text-blue-100">
+    
+        <!-- NAVIGATION HEADER -->
+        <header class="w-full max-w-7xl mx-auto px-6 py-8 flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="#home" onclick="switchTab('home')" class="flex items-center gap-3 group cursor-pointer">
+                <div class="w-9 h-9 relative flex items-center justify-center">
+                    
+                    <!-- SVG Delta/Triangle Logo Preserved -->
+                    <svg viewBox="0 0 100 100" class="w-full h-full transform group-hover:scale-105 transition-transform duration-200">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#2563eb" />
+                                <stop offset="50%" stop-color="#4f46e5" />
+                                <stop offset="100%" stop-color="#7c3aed" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M 50,12 L 88,80 C 90,84 87,88 82,88 L 18,88 C 13,88 10,84 12,80 Z" 
+                              fill="none" 
+                              stroke="url(#logoGradient)" 
+                              stroke-width="13" 
+                              stroke-linejoin="round" 
+                              stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <span class="text-4xl font-semibold tracking-tight text-white font-sans">infotix</span>
+            </a>
+    
+            <!-- Nav Links / Dynamic View Switcher -->
+            <nav class="flex items-center gap-10 text-base font-normal text-slate-400">
+                <button id="nav-services" onclick="switchTab('services')" class="tab-btn pb-1 hover:text-white transition-colors">Services</button>
+                <button id="nav-products" onclick="switchTab('products')" class="tab-btn pb-1 hover:text-white transition-colors">Products</button>
+            </nav>
+        </header>
+    
+        <!-- MAIN CONTENT CONTAINERS -->
+        <main class="w-full max-w-7xl mx-auto px-6 py-6 flex-grow flex flex-col justify-center">
+    
+            <!-- SECTION 1: HERO / HOME -->
+            <section id="section-home" class="page-section w-full py-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Text Content Column -->
+                    <div class="lg:col-span-6 space-y-8 pr-0 lg:pr-6">
+                        <h1 class="text-4xl sm:text-5xl lg:text-[3.25rem] font-medium tracking-tight text-white leading-[1.18]">
+                            We simplify technology so you can focus on growing your business.
+                        </h1>
+                        <p class="text-slate-400 text-lg leading-relaxed max-w-xl font-normal">
+                            Work with our 15+ years of experts from Amazon, Google, IBM, Meta, Oracle, and academic institutions to help grow your business.
+                        </p>
+                    </div>
+    
+                    <!-- Right Hero Image & CTA Column -->
+                    <div class="lg:col-span-6 flex flex-col items-end">
+                        <div class="w-full max-w-xl overflow-hidden rounded-2xl shadow-sm mb-6 bg-slate-900 border border-slate-800">
+                            <img 
+                                src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=1200&q=80" 
+                                alt="Engineers working on structural infrastructure" 
+                                class="w-full h-[340px] object-cover object-center transform hover:scale-102 transition-transform duration-500 opacity-90 hover:opacity-100"
+                                onerror="this.src='https://placehold.co/800x500/0f172a/94a3b8?text=Hero+Image+Fallback'"
+                            />
+                        </div>
+                        
+                        <!-- CTA Button -->
+                        <button class="bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700 font-small px-7 py-3 rounded-full text-base transition-all duration-200 shadow-sm active:scale-95">
+                            Schedule a call with us!
+                        </button>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- SECTION 2: SERVICES -->
+            <section id="section-services" class="page-section w-full py-8 hidden">
+                
+                <!-- Section Header -->
+                <div class="flex justify-end mb-10">
+                    <h2 class="text-4xl sm:text-5xl font-normal text-white tracking-tight">
+                        <span class="font-semibold">What</span> We Can Do for You
+                    </h2>
+                </div>
+    
+                <!-- 4-Column Services Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Service Card 1 -->
+                    <div class="flex flex-col justify-between h-full group">
+                        <div class="space-y-3 mb-6">
+                            <h3 class="text-lg font-semibold text-white tracking-tight">Software Development</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                AI-driven custom-built apps engineered for excellence and efficiency.
+                            </p>
+                        </div>
+                        <div class="overflow-hidden rounded-2xl bg-slate-900 border border-slate-800">
+                            <img 
+                                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" 
+                                alt="Software development team" 
+                                class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                                onerror="this.src='https://placehold.co/400x300/0f172a/94a3b8?text=Software+Development'"
+                            />
+                        </div>
+                    </div>
+    
+                    <!-- Service Card 2 -->
+                    <div class="flex flex-col justify-between h-full group">
+                        <div class="space-y-3 mb-6">
+                            <h3 class="text-lg font-semibold text-white tracking-tight">Cloud Solutions</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Cloud-first strategies that drive speed, scale, and savings.
+                            </p>
+                        </div>
+                        <div class="overflow-hidden rounded-2xl bg-slate-900 border border-slate-800">
+                            <img 
+                                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" 
+                                alt="Cloud data center infrastructure" 
+                                class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                                onerror="this.src='https://placehold.co/400x300/0f172a/94a3b8?text=Cloud+Solutions'"
+                            />
+                        </div>
+                    </div>
+    
+                    <!-- Service Card 3 -->
+                    <div class="flex flex-col justify-between h-full group">
+                        <div class="space-y-3 mb-6">
+                            <h3 class="text-lg font-semibold text-white tracking-tight">Managed Services</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                End-to-end tech support so you can focus on growth, not glitches.
+                            </p>
+                        </div>
+                        <div class="overflow-hidden rounded-2xl bg-slate-900 border border-slate-800">
+                            <img 
+                                src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?auto=format&fit=crop&w=600&q=80" 
+                                alt="Managed tech support team" 
+                                class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                                onerror="this.src='https://placehold.co/400x300/0f172a/94a3b8?text=Managed+Services'"
+                            />
+                        </div>
+                    </div>
+    
+                    <!-- Service Card 4 -->
+                    <div class="flex flex-col justify-between h-full group">
+                        <div class="space-y-3 mb-6">
+                            <h3 class="text-lg font-semibold text-white tracking-tight">Process Optimization</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                From vision to execution— strategic IT advisory you can count on.
+                            </p>
+                        </div>
+                        <div class="overflow-hidden rounded-2xl bg-slate-900 border border-slate-800">
+                            <img 
+                                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80" 
+                                alt="Strategic advisory and process meeting" 
+                                class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                                onerror="this.src='https://placehold.co/400x300/0f172a/94a3b8?text=Process+Optimization'"
+                            />
+                        </div>
+                    </div>
+    
+                </div>
+            </section>
+    
+            <!-- SECTION 3: PRODUCTS -->
+            <section id="section-products" class="page-section w-full py-8 hidden">
+                
+                <!-- Section Header -->
+                <div class="flex justify-end mb-10">
+                    <h2 class="text-4xl sm:text-5xl font-normal text-white tracking-tight">
+                        <span class="font-semibold">Explore</span> Our Products
+                    </h2>
+                </div>
+    
+                <!-- 4-Column Products Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Product Card 1 -->
+                    <div class="flex flex-col justify-between h-full group">
+                        <div class="space-y-3 mb-6">
+                            <h3 class="text-lg font-semibold text-white tracking-tight">Queue Management System</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                AI-driven custom-built apps engineered for excellence and efficiency.
+                            </p>
+                        </div>
+                        <div class="overflow-hidden rounded-2xl bg-slate-900 border border-slate-800">
+                            <img 
+                                src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" 
+                                alt="Robotics and hardware innovation" 
+                                class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                                onerror="this.src='https://placehold.co/400x300/0f172a/94a3b8?text=Queue+System+AI'"
+                            />
+                        </div>
+                    </div>
+    
+                    <!-- Product Card 2 -->
+                    <div class="flex flex-col justify-between h-full group">
+                        <div class="space-y-3 mb-6">
+                            <h3 class="text-lg font-semibold text-white tracking-tight">Queue Management System</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Cloud-first strategies that drive speed, scale, and savings.
+                            </p>
+                        </div>
+                        <div class="overflow-hidden rounded-2xl bg-slate-900 border border-slate-800">
+                            <img 
+                                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" 
+                                alt="Circuit board and cloud hardware" 
+                                class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                                onerror="this.src='https://placehold.co/400x300/0f172a/94a3b8?text=Queue+System+Cloud'"
+                            />
+                        </div>
+                    </div>
+    
+                    <!-- Product Card 3 -->
+                    <div class="flex flex-col justify-between h-full group">
+                        <div class="space-y-3 mb-6">
+                            <h3 class="text-lg font-semibold text-white tracking-tight">Queue Management System</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                End-to-end tech support so you can focus on growth, not glitches.
+                            </p>
+                        </div>
+                        <div class="overflow-hidden rounded-2xl bg-slate-900 border border-slate-800">
+                            <img 
+                                src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80" 
+                                alt="Lab engineer testing precision equipment" 
+                                class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                                onerror="this.src='https://placehold.co/400x300/0f172a/94a3b8?text=Queue+System+Tech'"
+                            />
+                        </div>
+                    </div>
+    
+                    <!-- Product Card 4 -->
+                    <div class="flex flex-col justify-between h-full group">
+                        <div class="space-y-3 mb-6">
+                            <h3 class="text-lg font-semibold text-white tracking-tight">Queue Management System</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                From vision to execution— strategic IT advisory you can count on.
+                            </p>
+                        </div>
+                        <div class="overflow-hidden rounded-2xl bg-slate-900 border border-slate-800">
+                            <img 
+                                src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=600&q=80" 
+                                alt="Electronics soldering and hardware engineering" 
+                                class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                                onerror="this.src='https://placehold.co/400x300/0f172a/94a3b8?text=Queue+System+Advisory'"
+                            />
+                        </div>
+                    </div>
+    
+                </div>
+            </section>
+    
+        </main>
+    
+        <!-- FOOTER -->
+        <footer class="w-full border-t border-slate-800 bg-slate-950 mt-12 py-12">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-8 text-xs text-slate-400">
+                    
+                    <!-- Address Column -->
+                    <div class="md:col-span-1 space-y-1">
+                        <p class="text-slate-300">25 Summers St, Oyster Bay</p>
+                        <p class="text-slate-300">Nassau, NY 11771</p>
+                    </div>
+    
+                    <!-- Link Column 1 -->
+                    <div class="space-y-2">
+                        <p><a href="#who" class="hover:text-white transition-colors">Who We Are</a></p>
+                        <p><a href="#publications" class="hover:text-black transition-colors">Publications</a></p>
+                    </div>
+    
+                    <!-- Link Column 2 -->
+                    <div class="space-y-2">
+                        <p><a href="#mission" class="hover:text-white transition-colors">Our Mission</a></p>
+                        <p><a href="#vision" class="hover:text-white transition-colors">Our Vision</a></p>
+                    </div>
+    
+                    <!-- Link Column 3 -->
+                    <div class="space-y-2">
+                        <p><a href="#careers" class="hover:text-white transition-colors">Careers</a></p>
+                        <p><a href="#internships" class="hover:text-white transition-colors">Internships</a></p>
+                    </div>
+    
+                    <!-- Contact Column -->
+                    <div class="space-y-1">
+                        <p class="text-slate-300">(917) 222-2222</p>
+                        <p><a href="mailto:info@infotix.com" class="hover:text-white transition-colors">info@infotix.com</a></p>
+                    </div>
+    
+                </div>
+            </div>
+        </footer>
+    
+        <!-- INTERACTIVE SCRIPT -->
+        <script>
+            // Tab switching function to replicate switching between pages or viewing all together
+            function switchTab(target) {
+                const sections = ['home', 'services', 'products'];
+                const buttons = {
+                    'services': document.getElementById('nav-services'),
+                    'products': document.getElementById('nav-products'),
+                    'all': document.getElementById('nav-all')
+                };
+    
+                // remove active style from all navigation buttons
+                Object.values(buttons).forEach(btn => {
+                    if(btn) btn.classList.remove('active');
+                });
+    
+                if (target === 'all') {
+                    // show all sections sequentially
+                    sections.forEach(sec => {
+                        const el = document.getElementById(`section-${sec}`);
+                        if (el) el.classList.remove('hidden');
+                    });
+                    if(buttons['all']) buttons['all'].classList.add('active');
+                } else {
+                    // hide all and show target section
+                    sections.forEach(sec => {
+                        const el = document.getElementById(`section-${sec}`);
+                        if (el) {
+                            if (sec === target) {
+                                el.classList.remove('hidden');
+                            } else {
+                                el.classList.add('hidden');
+                            }
+                        }
+                    });
+                    if(buttons[target]) buttons[target].classList.add('active');
+                }
+            }
+    
+            // initialize with 'home' page active on load
+            window.addEventListener('DOMContentLoaded', () => {
+                switchTab('home');
+            });
+        </script>
+    </body>
+</html>
